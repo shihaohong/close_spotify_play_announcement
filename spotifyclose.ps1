@@ -3,11 +3,12 @@
 # Check if Spotify is running
 $processName = 'Spotify'
 $spotifyProcess = Get-Process -Name $processName
-$mp3File = 'C:\Users\Shi Hao\PowerShellScripts\bing_bong.mp3'
-# Get Spotify window title
-$spotifyWindowTitle = (Get-Process -Name $processName).MainWindowTitle
-
 if ($spotifyProcess) {
+    $mp3File = 'C:\Users\Shi Hao\PowerShellScripts\bing_bong.mp3'
+    # Get Spotify window title
+    $spotifyWindowTitle = (Get-Process -Name $processName).MainWindowTitle
+
+
     # Heuristic -- If Spotify Premium, window title is "Spotify Premium" when nothing is playing
     Write-Host $spotifyWindowTitle
 
