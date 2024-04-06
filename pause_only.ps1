@@ -1,11 +1,7 @@
-
-
 # Check if Spotify is running
 $processName = 'Spotify'
 $spotifyProcess = Get-Process -Name $processName
 if ($spotifyProcess) {
-    $mp3File = 'C:\Users\Shi Hao\PowerShellScripts\bing_bong.mp3'
-    # Get Spotify window title
     $spotifyWindowTitle = (Get-Process -Name $processName).MainWindowTitle
 
 
@@ -32,17 +28,6 @@ if ($spotifyProcess) {
 "@
 
         [SpotifyControl]::SendPlayPause()
-
-        # Check if the MP3 file exists
-        if (Test-Path $mp3File) {
-            Add-Type -AssemblyName presentationCore
-            $mediaPlayer = New-Object system.windows.media.mediaplayer
-            $mediaPlayer.open($mp3File)
-            $mediaPlayer.Play()
-        }
-        else {
-            Write-Host "The specified MP3 file does not exist."
-        }    
     }
     else {
         Write-Host "Music is not playing"
